@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffee House | Menu</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {margin:0;font-family:'Poppins',sans-serif;background:#faf7f2;color:#2c1810;}
+    header{background:#2c1810;padding:15px 40px;}
+    .navbar{display:flex;justify-content:space-between;align-items:center;}
+    .logo{font-family:'Playfair Display',serif;color:#c49a6c;font-size:28px;}
+    .nav-links{list-style:none;display:flex;gap:20px;}
+    .nav-links li a{color:#fff;text-decoration:none;font-weight:500;transition:color 0.3s;}
+    .nav-links li a:hover{color:#c49a6c;}
+    .menu-hero{height:40vh;background:url('assets/images/interior.jpg') center/cover no-repeat;display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;position:relative;}
+    .menu-hero::after{content:'';position:absolute;inset:0;background:rgba(44,24,16,0.6);}
+    .menu-hero h1{position:relative;z-index:2;font-size:48px;font-family:'Playfair Display',serif;}
+    .menu{padding:50px 10%;text-align:center;}
+    .menu h2{font-size:36px;margin-bottom:30px;color:#2c1810;}
+    .filters{margin-bottom:30px;}
+    .filters button{margin:5px;padding:8px 20px;border:none;background:#c49a6c;color:#fff;border-radius:25px;cursor:pointer;font-size:14px;transition:background 0.3s;}
+    .filters button:hover{background:#a97b4d;}
+    .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;}
+    .menu-item{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.1);transition:transform 0.3s,box-shadow 0.3s;}
+    .menu-item:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,0,0,0.15);}
+    .menu-item img{width:100%;height:200px;object-fit:cover;}
+    .menu-content{padding:15px;}
+    .menu-content h3{margin:10px 0 5px;font-size:20px;}
+    .price{color:#c49a6c;font-weight:bold;font-size:18px;}
+    .menu-content button{margin-top:10px;padding:8px 15px;background:#2c1810;color:#fff;border:none;border-radius:5px;cursor:pointer;transition:background 0.3s;}
+    .menu-content button:hover{background:#c49a6c;}
+    footer{margin-top:40px;background:#2c1810;color:#fff;text-align:center;padding:15px;}
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">Coffee House</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="menu-hero">
+    <h1>Our Menu</h1>
+  </section>
+
+  <!-- Menu Section -->
+  <section class="menu">
+    <div class="filters">
+      <button onclick="filterMenu('all')">All</button>
+      <button onclick="filterMenu('coffee')">Coffee</button>
+      <button onclick="filterMenu('tea')">Tea</button>
+      <button onclick="filterMenu('pastry')">Pastries</button>
+    </div>
+
+    <div class="menu-grid" id="menu-grid">
+      <div class="menu-item" data-category="coffee">
+        <img src="assets/images/espresso.jpg" alt="Espresso">
+        <div class="menu-content">
+          <h3>Espresso</h3>
+          <p class="price">₹23.50</p>
+          <button onclick="addToCart('Espresso',23.50)">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="menu-item" data-category="coffee">
+        <img src="assets/images/latte.jpg" alt="Latte">
+        <div class="menu-content">
+          <h3>Latte</h3>
+          <p class="price">₹24.50</p>
+          <button onclick="addToCart('Latte',24.50)">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="menu-item" data-category="coffee">
+        <img src="assets/images/cappuccino.jpg" alt="Cappuccino">
+        <div class="menu-content">
+          <h3>Cappuccino</h3>
+          <p class="price">₹34.00</p>
+          <button onclick="addToCart('Cappuccino',34.00)">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="menu-item" data-category="dark-coffee">
+        <img src="assets/images/dark-coffee.jpg" alt="Dark Coffee">
+        <div class="menu-content">
+          <h3>Dark Coffee</h3>
+          <p class="price">₹35.00</p>
+          <button onclick="addToCart('Dark Coffee',35.00)">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="menu-item" data-category="tea">
+        <img src="assets/images/green-tea.jpg" alt="Green Tea">
+        <div class="menu-content">
+          <h3>Green Tea</h3>
+          <p class="price">₹32.50</p>
+          <button onclick="addToCart('Green Tea',32.50)">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="menu-item" data-category="tea">
+        <img src="assets/images/regular-tea.jpg" alt="Regular Tea">
+        <div class="menu-content">
+          <h3>Regular Tea</h3>
+          <p class="price">₹7.50</p>
+          <button onclick="addToCart('Regular Tea',7.50)">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="menu-item" data-category="tea">
+        <img src="assets/images/black-tea.jpg" alt="Dark Tea">
+        <div class="menu-content">
+          <h3>Dark Tea</h3>
+          <p class="price">₹8.50</p>
+          <button onclick="addToCart('Dark Tea',8.50)">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="menu-item" data-category="pastry">
+        <img src="assets/images/croissant.jpg" alt="Croissant">
+        <div class="menu-content">
+          <h3>Butter Croissant</h3>
+          <p class="price">₹22.80</p>
+          <button onclick="addToCart('Croissant',22.80)">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-item" data-category="pastry">
+        <img src="assets/images/fruite-pie.jpg" alt="Pie">
+        <div class="menu-content">
+          <h3>Fruite Pie</h3>
+          <p class="price">₹33.00</p>
+          <button onclick="addToCart('Fruite Pie',33.00)">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-item" data-category="pastry">
+        <img src="assets/images/cream-pie.jpg" alt="Pie">
+        <div class="menu-content">
+          <h3>Cream Pie</h3>
+          <p class="price">₹33.00</p>
+          <button onclick="addToCart('Cream Pie',33.00)">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Coffee House. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // LocalStorage Cart
+    function addToCart(name, price) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push({ name, price });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${name} added to cart!`);
+    }
+
+    // Filter function
+    function filterMenu(category) {
+      const items = document.querySelectorAll('.menu-item');
+      items.forEach(item => {
+        if (category === 'all' || item.dataset.category === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

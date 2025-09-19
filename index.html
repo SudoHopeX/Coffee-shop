@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffee House | Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #faf7f2;
+      color: #2c1810;
+      overflow-x: hidden;
+    }
+    header {
+      background: #2c1810;
+      padding: 15px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      color: #c49a6c;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    .nav-links li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-links li a:hover {
+      color: #c49a6c;
+    }
+    .hero {
+      height: 100vh;
+      background: url('assets/images/hero-coffee.jpg') center/cover fixed no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      text-align: center;
+      color: #fff;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+    }
+    .hero-overlay {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      padding: 20px;
+    }
+    .hero-overlay h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 56px;
+      margin-bottom: 15px;
+      animation: fadeDown 1s ease-out;
+    }
+    .hero-overlay p {
+      font-size: 20px;
+      margin-bottom: 25px;
+      animation: fadeUp 1.2s ease-out;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 25px;
+      background: #c49a6c;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn:hover {
+      background: #a97b4d;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeDown { from {opacity:0; transform:translateY(-20px);} to {opacity:1; transform:translateY(0);} }
+    @keyframes fadeUp { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 60px 10%;
+      text-align: center;
+    }
+    .feature {
+      background: #fff;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .feature:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+    .feature img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      height: 200px;
+      object-fit: cover;
+    }
+    .feature h3 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 10px;
+    }
+    .feature p {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    footer {
+      background: #2c1810;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">Coffee House</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-overlay">
+      <h2>Freshly Brewed, Just for You</h2>
+      <p>Discover the art of coffee at Coffee House.</p>
+      <a href="menu.html" class="btn">Order Now</a>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="feature">
+      <img src="assets/images/espresso.jpg" alt="Espresso">
+      <h3>Premium Beans</h3>
+      <p>Sourced from the best farms worldwide.</p>
+    </div>
+    <div class="feature">
+      <img src="assets/images/latte.jpg" alt="Latte">
+      <h3>Perfect Taste</h3>
+      <p>Crafted with passion by expert baristas.</p>
+    </div>
+    <div class="feature">
+      <img src="assets/images/cappuccino.jpg" alt="Cappuccino">
+      <h3>Cozy Ambience</h3>
+      <p>Relax in our warm and welcoming cafés.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Coffee House. All rights reserved.</p>
+  </footer>
+</body>
+</html>

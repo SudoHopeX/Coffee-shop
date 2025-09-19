@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffee House | Cart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {margin:0;font-family:'Poppins',sans-serif;background:#faf7f2;color:#2c1810;}
+    header{background:#2c1810;padding:15px 40px;}
+    .navbar{display:flex;justify-content:space-between;align-items:center;}
+    .logo{font-family:'Playfair Display',serif;color:#c49a6c;font-size:28px;}
+    .nav-links{list-style:none;display:flex;gap:20px;}
+    .nav-links li a{color:#fff;text-decoration:none;font-weight:500;}
+    .nav-links li a:hover{color:#c49a6c;}
+
+    .cart-section {padding:50px 10%; max-width:900px; margin:auto;}
+    h2 {font-size:32px;margin-bottom:20px;font-family:'Playfair Display',serif;text-align:center;}
+
+    table {width:100%;border-collapse:collapse;margin-bottom:30px;}
+    th,td {padding:12px;text-align:center;border-bottom:1px solid #ddd;}
+    th {background:#2c1810;color:#fff;}
+
+    .remove-btn {background:#c0392b;color:#fff;border:none;padding:5px 10px;border-radius:5px;cursor:pointer;}
+    .remove-btn:hover {background:#a93226;}
+
+    .cart-total {text-align:right;font-size:20px;font-weight:bold;margin-top:20px;}
+
+    .checkout-form {margin-top:30px;background:#fff;padding:20px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+    .checkout-form h3 {margin-bottom:15px;}
+    .checkout-form input, .checkout-form textarea, .checkout-form select {
+      width:100%;padding:10px;margin-bottom:15px;border:1px solid #ccc;border-radius:5px;
+    }
+    .checkout-btn {
+      background:#2c1810;color:#fff;padding:12px 20px;border:none;border-radius:8px;cursor:pointer;font-size:16px;
+      transition: background 0.3s;
+    }
+    .checkout-btn:hover {background:#c49a6c;}
+    footer{margin-top:40px;background:#2c1810;color:#fff;text-align:center;padding:15px;}
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">Coffee House</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="cart-section">
+    <h2>Your Cart</h2>
+    <table id="cart-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Price</th>
+          <th>Qty</th>
+          <th>Total</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="cart-items"></tbody>
+    </table>
+
+    <div class="cart-total" id="cart-total">Total: ₹0.00</div>
+
+    <!-- Checkout Form -->
+    <div class="checkout-form">
+      <h3>Checkout</h3>
+      <form id="checkout-form">
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email Address" required>
+        <textarea id="address" placeholder="Delivery Address" required></textarea>
+        <select id="payment" required>
+          <option value="">Select Payment Method</option>
+          <option value="credit">Credit Card</option>
+          <option value="paypal">PayPal</option>
+          <option value="cod">Cash on Delivery</option>
+        </select>
+        <button type="submit" class="checkout-btn">Place Order</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Coffee House. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Load Cart from LocalStorage
+    function loadCart() {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let cartItems = document.getElementById('cart-items');
+      let cartTotal = document.getElementById('cart-total');
+      cartItems.innerHTML = '';
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        let itemTotal = item.price * (item.qty || 1);
+        total += itemTotal;
+        cartItems.innerHTML += `
+          <tr>
+            <td>${item.name}</td>
+            <td>₹${item.price.toFixed(2)}</td>
+            <td>${item.qty || 1}</td>
+            <td>₹${itemTotal.toFixed(2)}</td>
+            <td><button class="remove-btn" onclick="removeItem(${index})">Remove</button></td>
+          </tr>`;
+      });
+
+      cartTotal.innerText = 'Total: ₹' + total.toFixed(2);
+    }
+
+    function removeItem(index) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      loadCart();
+    }
+
+    // Checkout Form Handler
+    document.getElementById('checkout-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      alert("Thank you for your purchase! Your order is placed.");
+      localStorage.removeItem('cart');
+      loadCart();
+      this.reset();
+    });
+
+    // Initialize cart display
+    loadCart();
+  </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffee House | About</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {margin:0;font-family:'Poppins',sans-serif;background:#faf7f2;color:#2c1810;}
+    header{background:#2c1810;padding:15px 40px;}
+    .navbar{display:flex;justify-content:space-between;align-items:center;}
+    .logo{font-family:'Playfair Display',serif;color:#c49a6c;font-size:28px;}
+    .nav-links{list-style:none;display:flex;gap:20px;}
+    .nav-links li a{color:#fff;text-decoration:none;font-weight:500;}
+    .nav-links li a:hover{color:#c49a6c;}
+
+    /* Hero */
+    .about-hero {
+      height: 40vh;
+      background: url('assets/images/interior.jpg') center/cover no-repeat;
+      display:flex;align-items:center;justify-content:center;
+      position:relative;color:#fff;text-align:center;
+    }
+    .about-hero::after{content:"";position:absolute;inset:0;background:rgba(44,24,16,0.6);}
+    .about-hero h1{position:relative;z-index:2;font-size:42px;font-family:'Playfair Display',serif;}
+
+    /* About section */
+    .about-section{max-width:1100px;margin:60px auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;padding:0 20px;}
+    .about-section img{width:100%;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.1);}
+    .about-section div{display:flex;flex-direction:column;justify-content:center;}
+    .about-section h2{font-size:32px;margin-bottom:15px;font-family:'Playfair Display',serif;}
+    .about-section p{line-height:1.6;}
+
+    /* Mission & Values */
+    .values{background:#fff;padding:50px 10%;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;text-align:center;}
+    .value-card{background:#faf7f2;padding:20px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);transition:.3s;}
+    .value-card:hover{transform:translateY(-6px);box-shadow:0 8px 20px rgba(0,0,0,0.15);}
+    .value-card h3{margin:15px 0;font-family:'Playfair Display',serif;}
+
+    /* Timeline */
+    .timeline{max-width:900px;margin:60px auto;padding:0 20px;}
+    .timeline h2{text-align:center;font-size:32px;font-family:'Playfair Display',serif;margin-bottom:30px;}
+    .timeline-item{margin-bottom:25px;padding-left:20px;border-left:3px solid #c49a6c;}
+    .timeline-item h4{margin:0;color:#2c1810;}
+    .timeline-item p{margin:5px 0;}
+
+    footer{margin-top:40px;background:#2c1810;color:#fff;text-align:center;padding:20px;}
+
+    @media(max-width:768px){
+      .about-section{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">Coffee House</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="about-hero">
+    <h1>About Us</h1>
+  </section>
+
+  <!-- Story -->
+  <section class="about-section">
+    <div>
+      <h2>Our Story</h2>
+      <p>We’re passionate about coffee. Our mission is to bring people together over a cup of freshly brewed coffee, sourced ethically and brewed with love. From the bean to the cup, every detail matters. We strive to create not just coffee, but moments of connection and joy.</p>
+    </div>
+    <img src="assets/images/coffee-shop.jpg" alt="Coffee Shop Interior">
+  </section>
+
+  <!-- Mission & Values -->
+  <section class="values">
+    <div class="value-card">
+      <h3>☕ Quality First</h3>
+      <p>We select only the finest beans and roast them to perfection.</p>
+    </div>
+    <div class="value-card">
+      <h3>🌱 Sustainability</h3>
+      <p>We work with ethical farms that care for the environment and their workers.</p>
+    </div>
+    <div class="value-card">
+      <h3>🤝 Community</h3>
+      <p>We believe coffee brings people together and we love to serve our community.</p>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="timeline">
+    <h2>Our Journey</h2>
+    <div class="timeline-item">
+      <h4>2022</h4>
+      <p>Opened our first café in Coffee City.</p>
+    </div>
+    <div class="timeline-item">
+      <h4>2024</h4>
+      <p>Expanded to three more locations, building a strong community of coffee lovers.</p>
+    </div>
+    <div class="timeline-item">
+      <h4>2025</h4>
+      <p>Launched our online store and sustainable coffee bean subscription service.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Coffee House. All rights reserved.</p>
+  </footer>
+</body>
+</html>
